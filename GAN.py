@@ -54,7 +54,7 @@ if __name__ == '__main__':
     LEARNING_RATE = 2e-4
     FEATURES_DISC_DIM = 64
     FEATURES_GEN_DIM = 64
-    FEATURES_NOISE_CHANNELS = 100
+    FEATURES_NOISE_DIM = 100
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     
     discriminator = Discriminator(input_channels=3, features_dim=FEATURES_DISC_DIM).to(device)
@@ -75,7 +75,7 @@ if __name__ == '__main__':
     'save_every': 100,
     'features_discriminator' : FEATURES_DISC_DIM,
     'features_generator' : FEATURES_GEN_DIM,
-    'noise_channels' : FEATURES_NOISE_CHANNELS
+    'noise_dims' : FEATURES_NOISE_DIM
     }
     
     train_dataset = DataLoader(torchvision.datasets.CelebA(root = './data', train = True, 
